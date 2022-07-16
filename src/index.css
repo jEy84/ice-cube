@@ -14,7 +14,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 3rem;
-  padding: 0;
+  padding: 2rem;
 }
 
 code {

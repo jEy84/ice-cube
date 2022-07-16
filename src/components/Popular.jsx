@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import {Splide,SplideSlide} from '@splidejs/react-splide';
 import '@splidejs/splide/css';
+import { Link } from "react-router-dom";
 
 
 function Popular() {
@@ -24,7 +25,7 @@ function Popular() {
       setPopular(JSON.parse(checkItem));
     }else{ // if item not set to localStorage
     
-    const response  = await fetch(` https://api.spoonacular.com/recipes/random?apiKey=3a0fff23a7174236ba4ba0e9da1c1a02&number=10`);  
+    const response  = await fetch(` https://api.spoonacular.com/recipes/random?apiKey=596d509027a048f3bc79f7297e38cc62&number=10`);  
 
     const data = await response.json();
 
@@ -57,9 +58,11 @@ function Popular() {
 
 
             <Card >
+              <Link to={'/recipe/'+ith.id}>
               <p >{ith.title}</p>
               <img src={ith.image} alt="..." />
               <Greadient/>
+              </Link>
             </Card>
             </SplideSlide>
           );
