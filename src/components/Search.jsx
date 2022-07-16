@@ -1,3 +1,5 @@
+// for Search recipe like cookie , bread  ... 
+
 import React, { useState } from 'react'
 import {FaSearch} from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom';
@@ -9,6 +11,7 @@ function Search() {
     const [userInput,setUserInput] = useState("");
     const navigate = useNavigate(); 
 
+    // when btn click navigate to searched page 
     const  submitHandler = (e)=>{
         e.preventDefault();
         navigate('/searched/'+userInput);
@@ -23,7 +26,7 @@ function Search() {
             (e)=>{
                 setUserInput(e.target.value);
             }
-        } type="text" value={userInput}/>
+        } type="text" value={userInput}  placeholder="cookie,salad..." />
         </div>
 
     </FormStyle>

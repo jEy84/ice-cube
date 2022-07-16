@@ -1,3 +1,5 @@
+// get all Veggie recipe 
+
 import React, { useEffect, useState } from "react";
 
 import styled from "styled-components";
@@ -8,10 +10,7 @@ import { Link } from "react-router-dom";
 function Veggie() {
   const [veggie, setVeggie] = useState([]);
 
-  useEffect(() => {
-    getVeggie();
-  }, []);
-
+  // function to to get data with asyns await
   const getVeggie = async () => {
     // use localStorage becuase limited amount of API request
     const checkItem = localStorage.getItem("veggie");
@@ -20,7 +19,7 @@ function Veggie() {
       setVeggie(JSON.parse(checkItem));
     } else {
       const response = await fetch(
-        ` https://api.spoonacular.com/recipes/random?apiKey=596d509027a048f3bc79f7297e38cc62&number=10&tags=vegetarian`
+        ` https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_KEY}&number=10&tags=vegetarian`
       );
 
       const data = await response.json();
@@ -30,6 +29,11 @@ function Veggie() {
     }
   };
 
+  
+  useEffect(() => {
+    getVeggie();
+  }, []);
+
   return (
     <div>
       <Wrapper>
@@ -37,7 +41,7 @@ function Veggie() {
         <Splide
           options={{
             perPage: 3,
-            arrows: false,
+            // arrows:  ,
             pagination: false,
             drag: "free",
             gap: "5rem",
