@@ -16,6 +16,7 @@ function Cusine() {
     `);
 
     const recipes = await response.json();
+    console.log(recipes);
     setCuisine(recipes.results);
   };
 
